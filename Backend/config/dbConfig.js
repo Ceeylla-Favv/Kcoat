@@ -2,7 +2,7 @@ module.exports ={
     HOST: 'localhost',
     USER: 'root',
     PASSWORD: '',
-    DB: 'kcoat_db',
+    DB: 'kcoat',
     dialect: 'mysql',
     
     pool:{

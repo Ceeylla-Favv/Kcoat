@@ -9,6 +9,8 @@ var corOptions = {
 }
 
 
+
+
 //middleware
 
 app.use(cors(corOptions))
@@ -16,6 +18,16 @@ app.use(cors(corOptions))
 app.use(express.json())
 
 app.use(express.urlencoded({extended: true}))
+
+
+
+//routers
+
+
+const router = require ('./routes/productRouter.js')
+
+app.use('/api/products', router)
+
 
 
 //testing api
