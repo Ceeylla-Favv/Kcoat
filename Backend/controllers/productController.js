@@ -87,11 +87,35 @@ const getPublishedProduct = async (req, res) => {
         res.status(500).send('Internal server error');
     }
 }
+
+//7. connect one to many relation Product and Reviews
+
+// 7. Get all products with their reviews
+const getProductReviews = async (req, res) => {
+  try {
+    const products = await Product.findAll({
+      include: [
+        {
+          model: Review,
+          as: "review",
+        },
+      ],
+    });
+    res.status(200).send(products);
+  } catch (error) {
+    console.error("Error fetching products with reviews:", error);
+    res.status(500).send("Internal server error");
+  }
+};
+
+
+
 module.exports = {
     addProduct,
     getAllProducts,
     getOneProduct,
     updateProduct,
     deleteProduct,
-    getPublishedProduct
+    getPublishedProduct,
+    getProductReviews
 }
