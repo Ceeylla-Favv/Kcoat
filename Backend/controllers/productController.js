@@ -24,7 +24,7 @@ const addProduct = async (req, res) => {
     };
 
     const product = await Product.create(info);
-    res.status(201).send(product); // Use 201 for successful creation
+    res.status(200).send(product); // Use 200 for successful creation
   } catch (error) {
     console.error("Error adding product:", error);
     res.status(500).send("Internal server error");
